@@ -1,2 +1,4 @@
-# dom
-A simple Document interface implementation
+DOM
+===
+
+A simple Document interface implementation.
