@@ -1,7 +1,7 @@
 class Tag {
-    constructor(name, message, attributes) {
+    constructor(name, content, attributes) {
         this.name = name;
-        this.message = message;
+        this.content = content;
         this.attributes = attributes;
     }
 
@@ -11,25 +11,25 @@ class Tag {
         return opening + '>';
     }
 
-    buildMessage() {
-        return this.message !== undefined ? this.message : '';
+    buildContent() {
+        return this.content !== undefined ? this.content : '';
     }
 
     buildClosing() {
         return `</${this.name}>`;
     }
 
-    toString () {
-        return `${this.buildOpening()}${this.buildMessage()}${this.buildClosing()}`;
+    toString() {
+        return `${this.buildOpening()}${this.buildContent()}${this.buildClosing()}`;
     }
 }
 
-function renderer(){
+function renderer() {
     let tagName = 'div';
-    let attributes = new Map();
+    const attributes = new Map();
 
-    function block(message) {
-        let tag = new Tag(tagName, message,attributes);
+    function block(content) {
+        let tag = new Tag(tagName, content, attributes);
         return tag.toString();
     }
 
